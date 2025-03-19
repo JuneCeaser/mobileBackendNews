@@ -22,6 +22,11 @@ const app = express();
 app.use(cors({ origin: "*" })); // Allow all origins for testing
 app.use(express.json());
 
+// Root route to prevent "Cannot GET /" error
+app.get("/", (req, res) => {
+  res.send("Welcome to the Newsletter API!");
+});
+
 // Routes
 app.use("/api/users", userRoutes);
 app.use("/api/newsletters", newsletterRoutes);
