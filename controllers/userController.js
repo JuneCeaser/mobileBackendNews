@@ -76,7 +76,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ error: "Email not verified" });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: "1000h",
     });
 
     res
